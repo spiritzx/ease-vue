@@ -6,11 +6,15 @@
           <div class="child-menu-title" @click="showChildFn(i)">
             <p>
               <i class="icon-2"></i>
-              <span>{{ item.meta.title }} {{ navIndex }}</span>
+              <span>{{ item.meta.title }}</span>
             </p>
-            <i class="el-icon-caret-bottom"></i>
+            <i
+              class="el-icon-arrow-right"
+              v-if="navIndex + '' + i === isShow"
+            ></i>
+            <i class="el-icon-arrow-down" v-else></i>
           </div>
-          <div class="child-menu-list-wrap" v-if="navIndex + '' + i == isShow">
+          <div class="child-menu-list-wrap" v-if="navIndex + '' + i === isShow">
             <aside-nav
               :asideNavArr="item.children"
               :navIndex="navIndex + 1"
@@ -54,7 +58,7 @@ export default {
   methods: {
     // 展示子组件
     showChildFn(i) {
-      if ("" + this.navIndex + i == this.isShow) {
+      if ("" + this.navIndex + i === this.isShow) {
         this.isShow = false;
       } else {
         this.isShow = "" + this.navIndex + i;
@@ -71,6 +75,7 @@ export default {
   .child-menu-title {
     padding-left: 10px;
     padding-right: 20px;
+    font-size: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -80,6 +85,9 @@ export default {
   .child-menu-title:hover {
     background: #555;
     color: rgb(95, 233, 141);
+  }
+  .router-link-active {
+    border-right: 2px solid #555;
   }
 }
 .child-menu-list-wrap {
@@ -94,6 +102,10 @@ export default {
       border: 0;
       width: auto;
       white-space: nowrap;
+      user-select: none;
+    }
+    .router-link-active {
+      border-right: 2px solid #555;
     }
   }
 }
