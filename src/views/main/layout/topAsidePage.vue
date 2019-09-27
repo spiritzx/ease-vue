@@ -115,7 +115,7 @@ export default {
   min-height: calc(100vh - 60px);
 }
 .el-aside {
-  min-height: calc(100vh - 60px);
+  max-height: calc(100vh - 60px);
   border-radius: 0 0 4px 0;
   box-shadow: 0 0 5px #999;
   .mask {
@@ -125,6 +125,9 @@ export default {
 .el-main {
   padding: 0;
   background: #f8f8f8;
+  max-height: calc(100vh - 60px);
+  overflow: hidden;
+  overflow-y: scroll;
   .view {
     background: #fff;
     min-height: calc(100vh - 120px);
@@ -140,6 +143,8 @@ export default {
     top: 0;
     z-index: 199;
     height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
     .mask {
       display: block;
       content: " ";
