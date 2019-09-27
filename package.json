@@ -15,7 +15,6 @@
     "core-js": "^2.6.5",
     "echarts": "^4.2.1",
     "element-ui": "^2.10.0",
-    "imgload-zx": "^1.0.3",
     "lodash": "^4.17.11",
     "vue": "^2.6.6",
     "vue-context-menu": "^2.0.6",

@@ -29,7 +29,8 @@
               "meta": {
                 "title": "二级子菜单A",
                 "isAuth": true,
-                "layout": "topAsidePage"
+                "layout": "topAsidePage",
+                "icon": "stack"
               }
             },
             {
@@ -39,7 +40,8 @@
               "meta": {
                 "title": "二级子菜单B",
                 "isAuth": true,
-                "layout": "topAsidePage"
+                "layout": "topAsidePage",
+                "icon": "stack"
               }
             }
           ]
@@ -51,7 +53,8 @@
           "meta": {
             "title": "二级子菜单",
             "isAuth": true,
-            "layout": "topAsidePage"
+            "layout": "topAsidePage",
+            "icon": "stack"
           }
         }
       ]
@@ -65,7 +68,8 @@
       "meta": {
         "title": "icon",
         "isAuth": true,
-        "layout": "topAsidePage"
+        "layout": "topAsidePage",
+        "icon": "stack"
       }
     }
   ]

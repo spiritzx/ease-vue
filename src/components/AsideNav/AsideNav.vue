@@ -14,12 +14,17 @@
             ></i>
             <i class="el-icon-arrow-down" v-else></i>
           </div>
-          <div class="child-menu-list-wrap" v-if="navIndex + '' + i === isShow">
-            <aside-nav
-              :asideNavArr="item.children"
-              :navIndex="navIndex + 1"
-            ></aside-nav>
-          </div>
+          <transition name="slide" mode="in-out">
+            <div
+              class="child-menu-list-wrap"
+              v-if="navIndex + '' + i === isShow"
+            >
+              <aside-nav
+                :asideNavArr="item.children"
+                :navIndex="navIndex + 1"
+              ></aside-nav>
+            </div>
+          </transition>
         </div>
         <div v-else>
           <router-link
@@ -27,7 +32,7 @@
             :to="item.path"
             v-if="item.isNavTable"
           >
-            <i class="icon-home"></i>
+            <i :class="'icon-' + item.meta.icon"></i>
             {{ item.meta.title }}
           </router-link>
         </div>
@@ -87,7 +92,8 @@ export default {
     color: rgb(95, 233, 141);
   }
   .router-link-active {
-    border-right: 2px solid #555;
+    border-right: 2px solid rgb(70, 141, 94);
+    color: rgb(65, 134, 88);
   }
 }
 .child-menu-list-wrap {
@@ -95,6 +101,8 @@ export default {
     padding: 0;
     padding-left: 15px;
     border: 0;
+    transition: height 0.8s;
+    overflow: hidden;
     .child-menu-title {
       display: flex;
       align-items: center;
@@ -105,8 +113,19 @@ export default {
       user-select: none;
     }
     .router-link-active {
-      border-right: 2px solid #555;
+      border-right: 2px solid rgb(70, 141, 94);
+      color: rgb(65, 134, 88);
     }
   }
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: 0.8s;
+  max-height: 300px;
+  overflow: hidden;
+}
+.slide-enter,
+.slide-leave-to {
+  max-height: 0;
 }
 </style>
