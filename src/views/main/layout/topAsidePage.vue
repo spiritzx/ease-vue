@@ -27,8 +27,8 @@
       </div>
     </el-header>
     <el-container>
-      <el-aside width="200px">
-        <div class="mask" @click="isSide = false"></div>
+      <el-aside :width="asideWidth">
+        <!-- <div>>></div> -->
         <aside-nav :asideNavArr="asideMainArr"></aside-nav>
       </el-aside>
       <el-main>
@@ -59,7 +59,8 @@ export default {
   },
   data() {
     return {
-      headHeight: "60px"
+      headHeight: "60px",
+      asideWidth: "200px"
     };
   },
   created() {
@@ -126,36 +127,12 @@ export default {
   padding: 0;
   background: #f8f8f8;
   max-height: calc(100vh - 60px);
-  overflow: hidden;
-  overflow-y: scroll;
   .view {
     background: #fff;
     min-height: calc(100vh - 120px);
     margin: 15px 20px;
     border-radius: 4px;
     box-shadow: 0 0 5px #888;
-  }
-}
-@media screen and (max-width: 875px) {
-  .el-aside {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 199;
-    height: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
-    .mask {
-      display: block;
-      content: " ";
-      position: fixed;
-      top: 0;
-      left: 200px;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      background: rgba(0, 0, 0, 0.2);
-    }
   }
 }
 </style>

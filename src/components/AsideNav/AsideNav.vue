@@ -120,7 +120,7 @@ export default {
 }
 .slide-enter-active,
 .slide-leave-active {
-  transition: 0.8s;
+  transition: 0.6s;
   max-height: 300px;
   overflow: hidden;
 }
