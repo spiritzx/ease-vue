@@ -17,7 +17,7 @@
             </div>
           </div>
           <div slot="nav-sub">
-            <el-dropdown @command="handleCommand">
+            <el-dropdown @command="handleCommand" v-if="$store.getters['auth/getAuthTagFn']">
               <span class="el-dropdown-link">
                 admin<i class="el-icon-arrow-down el-icon--right"></i>
               </span>
@@ -28,6 +28,9 @@
                 <el-dropdown-item>退出</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
+            <div @click="navToLoginFn" class="login-btn">
+              未登录,请登录
+            </div>
           </div>
         </nav-menu>
       </div>
@@ -91,6 +94,10 @@ export default {
     // 跳转首页
     navToHomeFn() {
       this.$router.push("/");
+    },
+    // 跳转导航页
+    navToLoginFn() {
+      this.$router.push("Login");
     }
   }
 };
@@ -115,6 +122,9 @@ export default {
     border: 0;
     box-shadow: none;
     z-index: 999;
+  }
+  .login-btn {
+    cursor: pointer;
   }
   .navBg {
     background: #fff;

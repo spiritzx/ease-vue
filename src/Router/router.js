@@ -105,6 +105,7 @@ RouterObj.beforeEach((to, from, next) => {
     if (isLogin) {
       next();
     } else {
+      console.log(5);
       next({ path: "/login" });
     }
   } else {
