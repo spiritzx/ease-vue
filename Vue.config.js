@@ -1,10 +1,12 @@
 const mockFetch = require("./mock/index");
+// 打包体积优化
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
 module.exports = {
   publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
   configureWebpack: () => {
+    // 进行生产模式打包时，进行模块化打包
     if (process.env.NODE_ENV === "production") {
       return {
         plugins: [new BundleAnalyzerPlugin()]
@@ -30,6 +32,7 @@ module.exports = {
     overlay: true,
     stats: "errors-only",
     before: app => {
+      // 本地模拟请求
       mockFetch(app);
     }
   }

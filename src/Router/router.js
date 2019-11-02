@@ -120,7 +120,7 @@ RouterObj.afterEach((to, from) => {
   document.title = to.meta.title;
   if (isLogin) {
     if (activeRouter) {
-      if (!routerFlag && from.path == "/") {
+      if (!routerFlag) {
         http.getRequest("/mock/api/menuList", "", true).then(res => {
           _routers.children = res.menuList;
           createRouterMenuFn([_routers]);

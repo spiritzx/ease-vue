@@ -35,6 +35,7 @@ axios.defaults.timeout = 10000;
 
 // 统一检查返回状态值
 function checkStatus(response) {
+  console.log(response);
   if (response && (response.status === 200 || response.status === 304)) {
     return response.data;
   } else {

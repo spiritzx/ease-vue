@@ -75,7 +75,7 @@ import {
   // Footer,
   // Loading,
   // MessageBox,
-  // Message,
+  Message,
   // Notification
 } from "element-ui";
 // import CollapseTransition from "element-ui/lib/transitions/collapse-transition";
@@ -153,5 +153,5 @@ Vue.use(Main);
 // Vue.prototype.$confirm = MessageBox.confirm;
 // Vue.prototype.$prompt = MessageBox.prompt;
 // Vue.prototype.$notify = Notification;
-// Vue.prototype.$message = Message;
+Vue.prototype.$message = Message;
 Vue.prototype.$ELEMENT = { size: "medium" };

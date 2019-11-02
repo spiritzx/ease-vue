@@ -17,7 +17,10 @@
             </div>
           </div>
           <div slot="nav-sub">
-            <el-dropdown @command="handleCommand" v-if="$store.getters['auth/getAuthTagFn']">
+            <el-dropdown
+              @command="handleCommand"
+              v-if="$store.getters['auth/getAuthTagFn']"
+            >
               <span class="el-dropdown-link">
                 admin<i class="el-icon-arrow-down el-icon--right"></i>
               </span>
@@ -28,7 +31,7 @@
                 <el-dropdown-item>退出</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
-            <div @click="navToLoginFn" class="login-btn">
+            <div @click="navToLoginFn" class="login-btn" v-else>
               未登录,请登录
             </div>
           </div>
@@ -66,16 +69,7 @@ export default {
       navPosition: "nav-left"
     };
   },
-  created() {
-    this.$Http
-      .getRequest("/mock/api/user", {
-        id: 1
-      })
-      .then(res => {
-        console.log(res);
-        console.log(this.navType);
-      });
-  },
+  created() {},
   computed: {
     ...mapGetters({
       topMainArr: "auth/getTopMain",

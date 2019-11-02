@@ -47,7 +47,7 @@ export default {
     setAuthTagFn({ commit }, val) {
       commit("setAuthTagFn", val);
     },
-    // 设置登录标志
+    // 重置登录标志
     removeAuthTagFn({ commit }) {
       commit("removeAuthTagFn");
     },
