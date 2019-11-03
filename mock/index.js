@@ -3,14 +3,24 @@ let fs = require("fs");
 function mockFetch(app) {
   // 请求数据
   app.get("/mock/api/*", (req, res) => {
-    fs.readFile(`.${req._parsedUrl.pathname}.json`, (err, data) => {
-      if (err) {
-        res.status(404);
-        res.send({ status: 404, err: err });
-        return;
-      }
-      res.send(data);
-    });
+    if (
+      req.headers &&
+      req.headers.authorization &&
+      req.headers.authorization == "001"
+    ) {
+      fs.readFile(`.${req._parsedUrl.pathname}.json`, (err, data) => {
+        if (err) {
+          res.status(404);
+          res.send({ status: 404, err: err });
+          return;
+        }
+        res.send(data);
+      });
+    } else {
+      res.status(403);
+      res.send({ status: 403, err: "token 失效了" });
+      return;
+    }
   });
   // 登录请求
   app.post("/mock/login", (req, res) => {
@@ -31,7 +41,10 @@ function mockFetch(app) {
             res.send({
               code: 1000,
               success: true,
-              ...server_user
+              data: {
+                userName: user.user,
+                userId: user.userId
+              }
             });
           } else {
             res.send({

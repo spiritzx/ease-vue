@@ -37,7 +37,7 @@ function deleteSessionStorage(key) {
 }
 // 指定获得临时数据
 function getSessionStorage(key) {
-  sessionStorage.getItem(key);
+  return sessionStorage.getItem(key);
 }
 
 // 保存用户路由
@@ -70,14 +70,17 @@ function deleteUserToken() {
 function savaSessionUserToken(token) {
   savaSessionStorage("token", token);
 }
-
+// 获取用户临时Token
+function getSessionUserToken() {
+  return getSessionStorage("token");
+}
 // 永久保存用户信息
 function savaUserInfo(userInfo) {
   savaLocalStorage("userInfo", userInfo);
 }
 // 获取用户信息
 function getUserInfo() {
-  getLocalStorage("userInfo");
+  return getLocalStorage("userInfo");
 }
 // 删除用户信息
 function deleteUserInfo() {
@@ -88,23 +91,29 @@ function deleteUserInfo() {
 function savaSessionUserInfo(userInfo) {
   savaSessionStorage("userInfo", userInfo);
 }
+// 获取用户临时Token
+function getSessionUserInfo() {
+  return getSessionStorage("userInfo");
+}
 
 export default {
-  savaLocalStorage: savaLocalStorage,
-  deleteLocalStorage: deleteLocalStorage,
-  getLocalStorage: getLocalStorage,
-  savaSessionStorage: savaSessionStorage,
-  deleteSessionStorage: deleteSessionStorage,
-  getSessionStorage: getSessionStorage,
-  savaUserMenuList: savaUserMenuList,
-  deleteUserMenuList: deleteUserMenuList,
-  getUserMenuList: getUserMenuList,
-  savaUserToken: savaUserToken,
-  deleteUserToken: deleteUserToken,
-  getUserToken: getUserToken,
-  savaSessionUserToken: savaSessionUserToken,
-  savaUserInfo: savaUserInfo,
-  deleteUserInfo: deleteUserInfo,
-  getUserInfo: getUserInfo,
-  savaSessionUserInfo: savaSessionUserInfo
+  savaLocalStorage,
+  deleteLocalStorage,
+  getLocalStorage,
+  savaSessionStorage,
+  deleteSessionStorage,
+  getSessionStorage,
+  savaUserMenuList,
+  deleteUserMenuList,
+  getUserMenuList,
+  savaUserToken,
+  deleteUserToken,
+  getUserToken,
+  savaSessionUserToken,
+  getSessionUserToken,
+  savaUserInfo,
+  deleteUserInfo,
+  getUserInfo,
+  savaSessionUserInfo,
+  getSessionUserInfo
 };

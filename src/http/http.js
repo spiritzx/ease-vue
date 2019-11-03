@@ -1,5 +1,6 @@
 import axios from "axios";
 import store from "../Store/store";
+import storage from "../utils/storage";
 // 引入弹窗组件
 import { Message, Loading } from "element-ui";
 // 引入路由跳转
@@ -9,8 +10,10 @@ let options = {};
 // 添加请求拦截器
 let myInterceptor = axios.interceptors.request.use(
   config => {
-    const token = store.state.token;
+    const token = storage.getSessionUserToken();
+    console.log(token);
     token && (config.headers.Authorization = token);
+    console.log(config);
     return config;
   },
   error => {

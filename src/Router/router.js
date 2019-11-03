@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import store from "../Store/store";
+import storage from "../utils/storage";
 import mainRoutes from "@/config/mainRoute.config.js";
 import globalRoutes from "@/config/globalRoute.config.js";
 import http from "@/http/http";
@@ -87,7 +88,10 @@ const RouterObj = new Router({
 
 // 权限验证
 RouterObj.beforeEach((to, from, next) => {
-  let isLogin = store.getters["auth/getAuthTagFn"];
+  let isLogin = storage.getSessionUserToken();
+  let userInfo = storage.getSessionUserInfo();
+  store.dispatch("auth/setAuthTagFn", !!isLogin);
+  store.dispatch("auth/setUserFn", userInfo);
   store.dispatch("page/setViewLayout", to.meta.layout);
   if (to.path === "/Home") {
     store.dispatch("page/setFixNav", true);
@@ -113,15 +117,15 @@ RouterObj.beforeEach((to, from, next) => {
   }
 });
 // 添加动态路由
-RouterObj.afterEach((to, from) => {
-  let isLogin = store.getters["auth/getAuthTagFn"];
+RouterObj.afterEach(to => {
+  let isLogin = storage.getSessionUserToken();
   let _routers = routers[0];
   let routerArr = routers[0].children;
   document.title = to.meta.title;
   if (isLogin) {
     if (activeRouter) {
       if (!routerFlag) {
-        http.getRequest("/mock/api/menuList", "", true).then(res => {
+        http.getRequest("/mock/api/menuList").then(res => {
           _routers.children = res.menuList;
           createRouterMenuFn([_routers]);
           RouterObj.addRoutes([_routers]); // 添加动态路由
@@ -131,11 +135,11 @@ RouterObj.afterEach((to, from) => {
         });
       }
     } else {
-      // filterRouterMenuFn(routerArr);
+      filterRouterMenuFn(routerArr);
     }
   } else {
     // 没有登陆
-    // filterRouterMenuFn(routerArr);
+    filterRouterMenuFn(routerArr);
   }
 });
 export default RouterObj;

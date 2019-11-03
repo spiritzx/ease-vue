@@ -29,6 +29,7 @@
   </div>
 </template>
 <script>
+import storage from "@/utils/storage";
 export default {
   data() {
     return {
@@ -53,9 +54,12 @@ export default {
             })
             .then(res => {
               if (res.code == 1000) {
+                let _res = res.data;
                 this.$store.dispatch("auth/setAuthTagFn", true);
-                this.$store.dispatch("auth/setUserFn", res);
+                this.$store.dispatch("auth/setUserFn", _res);
                 this.$router.push("/");
+                storage.savaSessionUserToken(_res.userId);
+                storage.savaSessionUserInfo(_res);
                 this.$message({
                   message: "登录成功",
                   type: "success"
