@@ -1,1 +1,1 @@
-export let activeRouter = true; //动态路由标志
+export let activeRouter = false; //时候需要动态路由请求

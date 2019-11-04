@@ -5,6 +5,7 @@ import storage from "../utils/storage";
 import mainRoutes from "@/config/mainRoute.config.js";
 import globalRoutes from "@/config/globalRoute.config.js";
 import http from "@/http/http";
+// 项目配置
 import { activeRouter } from "@/config/globalConfig";
 
 Vue.use(Router);
@@ -26,32 +27,11 @@ function createRouterMenuFn(menu, index = 1) {
     }
   });
 }
-/**
- * 生成路由
- * @param {*} list 菜单列表
- * @param {*} file 初始路径
- */
-// function createRouterMenuFn(list, file = "/") {
-//   list.forEach(val => {
-//     val.path = (file + val.name).replace("main/", "");
-//     val.path = val.path.replace("/main", "/");
-//     val.file = file + val.name + "/" + val.name;
-//     val.component = () => import("@/views" + val.file + ".vue");
-//     if (val.children && val.children.length) {
-//       val.redirect = (file + val.name + "/" + val.children[0].name).replace(
-//         "/main",
-//         ""
-//       );
-//       createRouterMenuFn(val.children, file + val.name + "/");
-//     }
-//     return true;
-//   });
-// }
 
+// 集成本地路由
 globalRoutes[0].children = globalRoutes[0].children.concat(mainRoutes);
 let routers = globalRoutes;
 createRouterMenuFn(globalRoutes);
-console.log(routers);
 
 /**
  * 筛选出导航路由
@@ -109,7 +89,6 @@ RouterObj.beforeEach((to, from, next) => {
     if (isLogin) {
       next();
     } else {
-      console.log(5);
       next({ path: "/login" });
     }
   } else {
@@ -129,6 +108,7 @@ RouterObj.afterEach(to => {
           _routers.children = res.menuList;
           createRouterMenuFn([_routers]);
           RouterObj.addRoutes([_routers]); // 添加动态路由
+          // 集成动态路由
           routerArr = routerArr.concat(_routers.children);
           filterRouterMenuFn(routerArr); // 筛选动态路由中菜单路由
           routerFlag = true;
