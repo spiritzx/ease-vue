@@ -119,6 +119,7 @@ RouterObj.afterEach(to => {
     }
   } else {
     // 没有登陆
+    console.log(routerArr)
     filterRouterMenuFn(routerArr);
   }
 });
