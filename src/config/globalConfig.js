@@ -1,1 +1,1 @@
-export let activeRouter = false; //时候需要动态路由请求
+export let activeRouter = true; //是否需要动态路由请求
