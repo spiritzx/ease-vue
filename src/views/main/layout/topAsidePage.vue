@@ -86,7 +86,9 @@ export default {
     },
     // 跳转用户管理首页
     navToAdminHomeFn() {
-      this.$router.push(this.asideMainArr[0].path);
+      this.$router.push({
+        path: this.asideMainArr[0].path
+      });
     },
     // 跳转首页
     navToHomeFn() {

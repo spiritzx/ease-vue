@@ -16,7 +16,7 @@
               <p>基于vue、element-ui的PC端解决方案</p>
             </div>
           </div>
-          <div slot="nav-sub">
+          <div slot="nav-sub" v-if="activeRouter">
             <el-dropdown
               @command="handleCommand"
               v-if="$store.getters['auth/getAuthTagFn']"
@@ -57,6 +57,7 @@ import { mapGetters } from "vuex";
 // 引入导航
 import NavMenu from "@/components/nav/NavMenu";
 // 引入导航类型
+import { activeRouter } from "@/config/globalConfig";
 
 export default {
   name: "topPage",
@@ -66,7 +67,8 @@ export default {
   data() {
     return {
       headHeight: "60px",
-      navPosition: "nav-left"
+      navPosition: "nav-left",
+      activeRouter: activeRouter
     };
   },
   created() {},
@@ -91,7 +93,9 @@ export default {
     },
     // 跳转导航页
     navToLoginFn() {
-      this.$router.push("Login");
+      this.$router.push({
+        path: "/login"
+      });
     }
   }
 };
