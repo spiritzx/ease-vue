@@ -1,10 +1,21 @@
 <template>
   <div class="bg">
     <img src="../../../../assets/imgs/earth.png" alt="地球" class="earth-bg" />
+    <div class="stars">
+      <div class="star"></div>
+      <div class="star pink"></div>
+      <div class="star blue"></div>
+      <div class="star yellow"></div>
+      <div class="star pink2"></div>
+      <div class="star blue2"></div>
+    </div>
     <div class="cicle-one">
       <div class="cicle-content"></div>
     </div>
     <div class="cicle-two">
+      <div class="cicle-content"></div>
+    </div>
+    <div class="cicle-three">
       <div class="cicle-content"></div>
     </div>
   </div>
@@ -58,7 +69,7 @@ export default {};
     margin-left: -250px;
     transform: rotateX(80deg) rotateY(10deg);
     // transform: translateY(150px);
-    animation: cir_r 6s infinite linear;
+    animation: cir_r 5s infinite linear;
     transform-origin: center;
     backface-visibility: hidden;
     .cicle-content {
@@ -70,6 +81,122 @@ export default {};
       -webkit-animation: cir_p 4s linear 0s infinite;
       animation: cir_p 5s linear 0s infinite;
     }
+  }
+  .cicle-three {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 220px;
+    margin-left: -150px;
+    transform: rotateX(80deg) rotateY(10deg);
+    // transform: translateY(150px);
+    animation: cir_three 6s infinite linear;
+    transform-origin: center;
+    backface-visibility: hidden;
+    .cicle-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url("../../../../assets/imgs/c.png");
+      background-size: 100% 100%;
+      -webkit-animation: cir_p 4s linear 0s infinite;
+      animation: cir_p 5s linear 0s infinite;
+    }
+  }
+}
+.stars {
+  width: 600px;
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 1;
+  margin-left: -300px;
+  .star {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #fff;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    transform-origin: 100% 0;
+    animation: star-ani 5s infinite linear;
+    box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    z-index: 2;
+  }
+  .star:after {
+    content: "";
+    display: block;
+    top: 0px;
+    left: 4px;
+    border: 0px solid #fff;
+    border-width: 0px 90px 4px 90px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg) translate3d(0px, 0px, 0);
+    box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform-origin: 0% 100%;
+    // animation: shooting-ani 3s infinite ease-out;
+  }
+  .pink {
+    bottom: 0;
+    left: 30px;
+    background: #ff5a99;
+    animation-delay: 4s;
+  }
+  .pink2 {
+    bottom: 0;
+    left: 430px;
+    background: #ff5a99;
+    animation-delay: 5s;
+  }
+  .pink:after {
+    border-color: transparent transparent transparent #ff5a99;
+    animation-delay: 5s;
+  }
+  .blue {
+    bottom: 0;
+    left: 100px;
+    background: cyan;
+    animation-delay: 7s;
+  }
+  .blue2 {
+    bottom: 0;
+    left: 570px;
+    background: cyan;
+    animation-delay: 7s;
+  }
+  .blue:after {
+    animation-delay: 7s;
+  }
+  .yellow {
+    bottom: 0;
+    left: 200px;
+    background: #ffcd5c;
+    animation-delay: 5.8s;
+  }
+  .yellow:after {
+    border-color: transparent transparent transparent #ffcd5c;
+    animation-delay: 5.8s;
+  }
+}
+
+@keyframes star-ani {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(0) translate3d(0, -200px, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) rotate(0) translate3d(0, -500px, 0);
   }
 }
 @keyframes cir {
@@ -86,6 +213,14 @@ export default {};
   }
   100% {
     transform: rotateX(80deg) rotateY(-5deg) rotateZ(-360deg);
+  }
+}
+@keyframes cir_three {
+  0% {
+    transform: rotateX(80deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(80deg) rotateY(0deg) rotateZ(-360deg);
   }
 }
 @keyframes cir_p {
