@@ -58,6 +58,13 @@ export default {
         lineDashOffset: -10
       })
       .start();
+    curve1.animateTo(
+      {
+        shape: {
+          percent: 1
+        }
+      }, 1000
+    );
     var star_one = new zrender.Circle({
       style: {
         fill: "#fff",
