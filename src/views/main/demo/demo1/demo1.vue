@@ -1,7 +1,7 @@
 <template>
   <div class="bg">
     <img src="../../../../assets/imgs/earth.png" alt="地球" class="earth-bg" />
-    <div class="canvas-box" id="canvasBox" style="width: 500px; height: 500px;"></div>
+    <div class="canvas-box" id="canvasBox" style="width: 600px; height: 600px;"></div>
     <div class="stars">
       <div class="star"></div>
       <div class="star pink"></div>
@@ -33,34 +33,313 @@ export default {
   mounted() {
     let canvasBox = document.getElementById("canvasBox");
     let zr = null;
-    this.zr = zr = zrender.init(canvasBox, 360, 720);
-    var curve2 = new zrender.BezierCurve({
+    this.zr = zr = zrender.init(canvasBox, 500, 500);
+    var curve1 = new zrender.BezierCurve({
       shape: {
-        x1: 250,
-        y1: 500,
-        x2: 200,
-        y2: 200,
-        x3: 400,
-        y3: 400,
-        x4: 0,
-        y4: 0
+        x1: 300,
+        y1: 380,
+        x2: 60,
+        y2: 100,
+        cpx1: 80,
+        cpy1: 400
       },
       style: {
-        lineWidth: 3,
+        lineWidth: 1,
         stroke: "yellow",
         lineDash: [5, 5],
         lineDashOffset: 0
       }
     });
 
-    zr.add(curve2);
-
-    curve2
+    zr.add(curve1);
+    curve1
       .animate("style", true)
-      .when(1000, {
+      .when(300, {
         lineDashOffset: -10
       })
       .start();
+    var star_one = new zrender.Circle({
+      style: {
+        fill: "#fff",
+        shadowBlur: 10,
+        shadowColor: "#fff"
+      },
+      shape: {
+        cx: 60,
+        cy: 100,
+        r: 5
+      }
+    });
+    zr.add(star_one);
+
+    var curve2 = new zrender.BezierCurve({
+      shape: {
+        x1: 300,
+        y1: 380,
+        x2: 150,
+        y2: 150,
+        cpx1: 150,
+        cpy1: 380
+      },
+      style: {
+        lineWidth: 1,
+        stroke: "red",
+        lineDash: [5, 5],
+        lineDashOffset: 0
+      }
+    });
+    zr.add(curve2);
+    curve2
+      .animate("style", true)
+      .when(300, {
+        lineDashOffset: -10
+      })
+      .start();
+    var star_two = new zrender.Circle({
+      style: {
+        fill: "#fff",
+        shadowBlur: 10,
+        shadowColor: "#fff"
+      },
+      shape: {
+        cx: 150,
+        cy: 150,
+        r: 5
+      }
+    });
+    zr.add(star_two);
+
+    var curve3 = new zrender.BezierCurve({
+      shape: {
+        x1: 300,
+        y1: 380,
+        x2: 10,
+        y2: 150,
+        cpx1: 0,
+        cpy1: 380
+      },
+      style: {
+        lineWidth: 1,
+        stroke: "blue",
+        lineDash: [5, 5],
+        lineDashOffset: 0
+      }
+    });
+    zr.add(curve3);
+
+    curve3
+      .animate("style", true)
+      .when(300, {
+        lineDashOffset: -10
+      })
+      .start();
+    var star_three = new zrender.Circle({
+      style: {
+        fill: "#fff",
+        shadowBlur: 10,
+        shadowColor: "#fff"
+      },
+      shape: {
+        cx: 10,
+        cy: 150,
+        r: 5
+      }
+    });
+    zr.add(star_three);
+
+    var curve4 = new zrender.BezierCurve({
+      shape: {
+        x1: 300,
+        y1: 380,
+        x2: 220,
+        y2: 150,
+        cpx1: 220,
+        cpy1: 380
+      },
+      style: {
+        lineWidth: 1,
+        stroke: "green",
+        lineDash: [5, 5],
+        lineDashOffset: 0
+      }
+    });
+
+    zr.add(curve4);
+
+    curve4
+      .animate("style", true)
+      .when(300, {
+        lineDashOffset: -10
+      })
+      .start();
+    var star_four = new zrender.Circle({
+      style: {
+        fill: "#fff",
+        shadowBlur: 10,
+        shadowColor: "#fff"
+      },
+      shape: {
+        cx: 220,
+        cy: 150,
+        r: 5
+      }
+    });
+    zr.add(star_four);
+
+    var curve5 = new zrender.BezierCurve({
+      shape: {
+        x1: 300,
+        y1: 380,
+        x2: 540,
+        y2: 100,
+        cpx1: 540,
+        cpy1: 380
+      },
+      style: {
+        lineWidth: 1,
+        stroke: "yellow",
+        lineDash: [5, 5],
+        lineDashOffset: 0
+      }
+    });
+
+    zr.add(curve5);
+
+    curve5
+      .animate("style", true)
+      .when(300, {
+        lineDashOffset: -10
+      })
+      .start();
+    var star_five = new zrender.Circle({
+      style: {
+        fill: "#fff",
+        shadowBlur: 10,
+        shadowColor: "#fff"
+      },
+      shape: {
+        cx: 540,
+        cy: 100,
+        r: 5
+      }
+    });
+    zr.add(star_five);
+    var curve6 = new zrender.BezierCurve({
+      shape: {
+        x1: 300,
+        y1: 380,
+        x2: 450,
+        y2: 150,
+        cpx1: 450,
+        cpy1: 380
+      },
+      style: {
+        lineWidth: 1,
+        stroke: "red",
+        lineDash: [5, 5],
+        lineDashOffset: 0
+      }
+    });
+
+    zr.add(curve6);
+
+    curve6
+      .animate("style", true)
+      .when(300, {
+        lineDashOffset: -10
+      })
+      .start();
+     var star_six = new zrender.Circle({
+      style: {
+        fill: "#fff",
+        shadowBlur: 10,
+        shadowColor: "#fff"
+      },
+      shape: {
+        cx: 450,
+        cy: 150,
+        r: 5
+      }
+    });
+    zr.add(star_six);
+
+    var curve7 = new zrender.BezierCurve({
+      shape: {
+        x1: 300,
+        y1: 380,
+        x2: 590,
+        y2: 150,
+        cpx1: 590,
+        cpy1: 380
+      },
+      style: {
+        lineWidth: 1,
+        stroke: "blue",
+        lineDash: [5, 5],
+        lineDashOffset: 0
+      }
+    });
+
+    zr.add(curve7);
+
+    curve7
+      .animate("style", true)
+      .when(300, {
+        lineDashOffset: -10
+      })
+      .start();
+     var star_seven = new zrender.Circle({
+      style: {
+        fill: "#fff",
+        shadowBlur: 10,
+        shadowColor: "#fff"
+      },
+      shape: {
+        cx: 590,
+        cy: 150,
+        r: 5
+      }
+    });
+    zr.add(star_seven);
+
+    var curve8 = new zrender.BezierCurve({
+      shape: {
+        x1: 300,
+        y1: 380,
+        x2: 380,
+        y2: 150,
+        cpx1: 380,
+        cpy1: 380
+      },
+      style: {
+        lineWidth: 1,
+        stroke: "green",
+        lineDash: [5, 5],
+        lineDashOffset: 0
+      }
+    });
+
+    zr.add(curve8);
+
+    curve8
+      .animate("style", true)
+      .when(300, {
+        lineDashOffset: -10
+      })
+      .start();
+    var star_eight = new zrender.Circle({
+      style: {
+        fill: "#fff",
+        shadowBlur: 10,
+        shadowColor: "#fff"
+      },
+      shape: {
+        cx: 380,
+        cy: 150,
+        r: 5
+      }
+    });
+    zr.add(star_eight);
   }
 };
 </script>
@@ -146,6 +425,13 @@ export default {
       animation: cir_p 5s linear 0s infinite;
     }
   }
+}
+.canvas-box {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -300px;
+  z-index: 20;
 }
 .stars {
   width: 600px;
