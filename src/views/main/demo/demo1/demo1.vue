@@ -1,6 +1,7 @@
 <template>
   <div class="bg">
     <img src="../../../../assets/imgs/earth.png" alt="地球" class="earth-bg" />
+    <div class="canvas-box" id="canvasBox" style="width: 500px; height: 500px;"></div>
     <div class="stars">
       <div class="star"></div>
       <div class="star pink"></div>
@@ -21,7 +22,47 @@
   </div>
 </template>
 <script>
-export default {};
+import * as zrender from "zrender";
+export default {
+  name: "demo1",
+  data() {
+    return {
+      zr: null
+    };
+  },
+  mounted() {
+    let canvasBox = document.getElementById("canvasBox");
+    let zr = null;
+    this.zr = zr = zrender.init(canvasBox, 360, 720);
+    var curve2 = new zrender.BezierCurve({
+      shape: {
+        x1: 250,
+        y1: 500,
+        x2: 200,
+        y2: 200,
+        x3: 400,
+        y3: 400,
+        x4: 0,
+        y4: 0
+      },
+      style: {
+        lineWidth: 3,
+        stroke: "yellow",
+        lineDash: [5, 5],
+        lineDashOffset: 0
+      }
+    });
+
+    zr.add(curve2);
+
+    curve2
+      .animate("style", true)
+      .when(1000, {
+        lineDashOffset: -10
+      })
+      .start();
+  }
+};
 </script>
 <style lang="less" scoped>
 .bg {
