@@ -7,6 +7,9 @@
     <div class="cicle-two">
       <div class="cicle-content"></div>
     </div>
+    <div class="cicle-three">
+      <div class="cicle-content"></div>
+    </div>
   </div>
 </template>
 <script>
@@ -37,7 +40,7 @@ export default {};
     left: 50%;
     top: 120px;
     margin-left: -250px;
-    animation: cir 6s infinite linear;
+    animation: cir 4s infinite linear;
     // transform: translateY(150px);
     .cicle-content {
       position: absolute;
@@ -45,6 +48,29 @@ export default {};
       height: 100%;
       background-image: url("../../../../assets/imgs/c.png");
       background-size: 100% 100%;
+      animation: cir_p 3s linear 0s infinite;
+    }
+  }
+  .cicle-two {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 120px;
+    margin-left: -250px;
+    transform: rotateX(80deg) rotateY(10deg);
+    // transform: translateY(150px);
+    animation: cir_r 6s infinite linear;
+    transform-origin: center;
+    backface-visibility: hidden;
+    .cicle-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url("../../../../assets/imgs/c.png");
+      background-size: 100% 100%;
+      -webkit-animation: cir_p 4s linear 0s infinite;
       animation: cir_p 5s linear 0s infinite;
     }
   }
@@ -59,6 +85,28 @@ export default {};
     transform: rotateX(80deg) rotateY(10deg);
     // transform: translateY(150px);
     animation: cir_r 6s infinite linear;
+    transform-origin: center;
+    backface-visibility: hidden;
+    .cicle-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url("../../../../assets/imgs/c.png");
+      background-size: 100% 100%;
+      -webkit-animation: cir_p 4s linear 0s infinite;
+      animation: cir_p 5s linear 0s infinite;
+    }
+  }
+  .cicle-three {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 220px;
+    margin-left: -150px;
+    transform: rotateX(80deg) rotateY(0deg);
+    // transform: translateY(150px);
+    animation: cir_three 6s infinite linear;
     transform-origin: center;
     backface-visibility: hidden;
     .cicle-content {
@@ -86,6 +134,14 @@ export default {};
   }
   100% {
     transform: rotateX(80deg) rotateY(-5deg) rotateZ(-360deg);
+  }
+}
+@keyframes cir_three {
+  0% {
+    transform: rotateX(80deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(80deg) rotateY(0deg) rotateZ(-360deg);
   }
 }
 @keyframes cir_p {
