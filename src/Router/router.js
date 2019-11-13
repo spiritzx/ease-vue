@@ -73,19 +73,16 @@ RouterObj.beforeEach((to, from, next) => {
   store.dispatch("auth/setAuthTagFn", !!isLogin);
   store.dispatch("auth/setUserFn", userInfo);
   store.dispatch("page/setViewLayout", to.meta.layout);
-  if (to.path === "/Home") {
-    store.dispatch("page/setFixNav", true);
-  } else {
-    store.dispatch("page/setFixNav", false);
-  }
-  if (to.meta.isAuth) {
+  if (to.name !== "login" && !mainRoutes.length && !isLogin) {
+    next({ path: "/login" });
+  } else if (to.meta.isAuth) {
     let _to = {
       path: to.path,
       title: to.meta.title,
       active: false
     };
-    store.dispatch("page/setTagViewFn", _to);
-    store.dispatch("page/setTagActiveFn", to.path);
+    store.dispatch("page/setTagViewFn", _to); // 页面预览标签
+    store.dispatch("page/setTagActiveFn", to.path); // 当前页面路径
     if (isLogin) {
       next();
     } else {
@@ -101,8 +98,11 @@ RouterObj.afterEach(to => {
   let _routers = routers[0];
   let routerArr = routers[0].children;
   document.title = to.meta.title;
+  console.log(isLogin)
   if (isLogin) {
+    console.log(1)
     if (activeRouter) {
+      console.log(14)
       if (!routerFlag) {
         http.getRequest("/mock/api/menuList").then(res => {
           _routers.children = res.menuList;

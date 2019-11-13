@@ -1,7 +1,11 @@
 <template>
   <div class="bg">
     <img src="../../../../assets/imgs/earth.png" alt="地球" class="earth-bg" />
-    <div class="canvas-box" id="canvasBox" style="width: 600px; height: 600px;"></div>
+    <div
+      class="canvas-box"
+      id="canvasBox"
+      style="width: 600px; height: 600px;"
+    ></div>
     <div class="stars">
       <div class="star"></div>
       <div class="star pink"></div>
@@ -63,7 +67,8 @@ export default {
         shape: {
           percent: 1
         }
-      }, 1000
+      },
+      1000
     );
     var star_one = new zrender.Circle({
       style: {
@@ -256,7 +261,7 @@ export default {
         lineDashOffset: -10
       })
       .start();
-     var star_six = new zrender.Circle({
+    var star_six = new zrender.Circle({
       style: {
         fill: "#fff",
         shadowBlur: 10,
@@ -295,7 +300,7 @@ export default {
         lineDashOffset: -10
       })
       .start();
-     var star_seven = new zrender.Circle({
+    var star_seven = new zrender.Circle({
       style: {
         fill: "#fff",
         shadowBlur: 10,

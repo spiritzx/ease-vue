@@ -3,7 +3,7 @@
     <el-header
       :height="headHeight"
       :class="{
-        fixNav: $store.getters['page/getFixNav'],
+        fixNav: $route.meta.isNavFix,
         navBg: $store.getters['page/getNavBg']
       }"
     >
