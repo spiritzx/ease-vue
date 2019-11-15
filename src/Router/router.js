@@ -73,9 +73,7 @@ RouterObj.beforeEach((to, from, next) => {
   store.dispatch("auth/setAuthTagFn", !!isLogin);
   store.dispatch("auth/setUserFn", userInfo);
   store.dispatch("page/setViewLayout", to.meta.layout);
-  if (to.name !== "login" && !mainRoutes.length && !isLogin) {
-    next({ path: "/login" });
-  } else if (to.meta.isAuth) {
+  if (to.meta.isAuth) {
     let _to = {
       path: to.path,
       title: to.meta.title,
@@ -98,11 +96,8 @@ RouterObj.afterEach(to => {
   let _routers = routers[0];
   let routerArr = routers[0].children;
   document.title = to.meta.title;
-  console.log(isLogin)
   if (isLogin) {
-    console.log(1)
     if (activeRouter) {
-      console.log(14)
       if (!routerFlag) {
         http.getRequest("/mock/api/menuList").then(res => {
           _routers.children = res.menuList;
