@@ -73,19 +73,14 @@ RouterObj.beforeEach((to, from, next) => {
   store.dispatch("auth/setAuthTagFn", !!isLogin);
   store.dispatch("auth/setUserFn", userInfo);
   store.dispatch("page/setViewLayout", to.meta.layout);
-  if (to.path === "/Home") {
-    store.dispatch("page/setFixNav", true);
-  } else {
-    store.dispatch("page/setFixNav", false);
-  }
   if (to.meta.isAuth) {
     let _to = {
       path: to.path,
       title: to.meta.title,
       active: false
     };
-    store.dispatch("page/setTagViewFn", _to);
-    store.dispatch("page/setTagActiveFn", to.path);
+    store.dispatch("page/setTagViewFn", _to); // 页面预览标签
+    store.dispatch("page/setTagActiveFn", to.path); // 当前页面路径
     if (isLogin) {
       next();
     } else {

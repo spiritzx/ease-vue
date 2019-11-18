@@ -1,7 +1,11 @@
 <template>
   <div class="bg">
     <img src="../../../../assets/imgs/earth.png" alt="地球" class="earth-bg" />
-    <div class="canvas-box" id="canvasBox" style="width: 600px; height: 600px;"></div>
+    <div
+      class="canvas-box"
+      id="canvasBox"
+      style="width: 600px; height: 600px;"
+    ></div>
     <div class="stars">
       <div class="star"></div>
       <div class="star pink"></div>
