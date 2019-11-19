@@ -11,79 +11,79 @@
  * children： 子菜单
  */
 const mainRoutes = [
-  // {
-  //   name: "Home",
-  //   isNavTable: true,
-  //   position: "top",
-  //   type: "main",
-  //   icon: "",
-  //   url: "/main/Home",
-  //   meta: {
-  //     title: "首页", // 页面标题
-  //     isAuth: false, // 是否需要授权
-  //     layout: "topPage", // 头部导航布局
-  //     isNavFix: true // 头部导航是否固定
-  //   }
-  // },
   {
-    name: "Index", // 单纯后台管理页面不可删除
+    name: "Home",
+    isNavTable: true,
+    position: "top",
+    type: "main",
+    icon: "",
+    url: "/main/Home",
+    meta: {
+      title: "首页", // 页面标题
+      isAuth: false, // 是否需要授权
+      layout: "topPage", // 头部导航布局
+      isNavFix: true // 头部导航是否固定
+    }
+  },
+  {
+    name: "Index", // 此后台管理页面不可删除
     isNavTable: true,
     position: "aside",
     type: "main",
-    icon: "",
     url: "/main/Index",
     meta: {
+      icon: "index", // icon
       title: "管理首页", // 页面标题
       isAuth: true, // 是否需要授权
       layout: "topAsidePage", // 头部导航布局
       isNavFix: false // 头部导航是否固定
     }
+  },
+  {
+    name: "About",
+    isNavTable: true,
+    position: "top",
+    type: "main",
+    url: "/main/About",
+    meta: {
+      title: "About",
+      isAuth: false,
+      layout: "topPage"
+    }
+  },
+  {
+    name: "demo",
+    isNavTable: true,
+    position: "top",
+    type: "main",
+    url: "/main/demo",
+    meta: {
+      title: "demo",
+      isAuth: false,
+      layout: "topPage"
+    },
+    children: [
+      {
+        name: "demo-1",
+        isNavTable: true,
+        url: "/main/demo/demo1",
+        meta: {
+          title: "demo-1",
+          isAuth: false,
+          layout: "topPage"
+        }
+      },
+      {
+        name: "demo-2",
+        isNavTable: true,
+        url: "/main/demo/demo2",
+        meta: {
+          title: "demo-2",
+          isAuth: false,
+          layout: "topPage"
+        }
+      }
+    ]
   }
-  // {
-  //   name: "About",
-  //   isNavTable: true,
-  //   position: "top",
-  //   type: "main",
-  //   url: "/main/About",
-  //   meta: {
-  //     title: "About",
-  //     isAuth: false,
-  //     layout: "topPage"
-  //   }
-  // },
-  // {
-  //   name: "demo",
-  //   isNavTable: true,
-  //   position: "top",
-  //   type: "main",
-  //   url: "/main/demo",
-  //   meta: {
-  //     title: "demo",
-  //     isAuth: false,
-  //     layout: "topPage"
-  //   },
-  //   children: [
-  //     {
-  //       name: "demo-1",
-  //       isNavTable: true,
-  //       url: "/main/demo/demo1",
-  //       meta: {
-  //         title: "demo-1",
-  //         isAuth: false,
-  //         layout: "topPage"
-  //       }
-  //     },
-  //     {
-  //       name: "demo-2",
-  //       isNavTable: true,
-  //       url: "/main/demo/demo2",
-  //       meta: {
-  //         title: "demo-2",
-  //         isAuth: false,
-  //         layout: "topPage"
-  //       }
-  //     }
-  //   ]
-  // }
 ];
 export default mainRoutes;

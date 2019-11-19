@@ -15,6 +15,7 @@ let routerFlag = false;
 // 生成动态路由
 function createRouterMenuFn(menu, index = 1) {
   menu.forEach(val => {
+    console.log(val);
     val.path = val.url.replace("/main", "");
     let urlArr = val.url.split("/");
     let _name = urlArr[urlArr.length - 1];
@@ -29,8 +30,18 @@ function createRouterMenuFn(menu, index = 1) {
 }
 
 // 集成本地路由
-globalRoutes[0].children = globalRoutes[0].children.concat(mainRoutes);
+routerFlag = storage.getUserMenuList();
+console.log(routerFlag);
+if (routerFlag) {
+  globalRoutes[0].children = globalRoutes[0].children
+    .concat(mainRoutes)
+    .concat(routerFlag);
+} else {
+  globalRoutes[0].children = globalRoutes[0].children.concat(mainRoutes);
+}
+
 let routers = globalRoutes;
+console.log(routers);
 createRouterMenuFn(globalRoutes);
 
 /**
@@ -101,6 +112,7 @@ RouterObj.afterEach(to => {
       if (!routerFlag) {
         http.getRequest("/mock/api/menuList").then(res => {
           _routers.children = res.menuList;
+          storage.savaUserMenuList(res.menuList);
           createRouterMenuFn([_routers]);
           RouterObj.addRoutes([_routers]); // 添加动态路由
           // 集成动态路由
@@ -108,6 +120,8 @@ RouterObj.afterEach(to => {
           filterRouterMenuFn(routerArr); // 筛选动态路由中菜单路由
           routerFlag = true;
         });
+      } else {
+        filterRouterMenuFn(routerArr);
       }
     } else {
       filterRouterMenuFn(routerArr);

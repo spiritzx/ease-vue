@@ -18,7 +18,7 @@ function deleteLocalStorage(key) {
 }
 // 指定获得永久数据
 function getLocalStorage(key) {
-  localStorage.getItem(key);
+  return localStorage.getItem(key);
 }
 
 // 临时保存数据
@@ -42,15 +42,17 @@ function getSessionStorage(key) {
 
 // 保存用户路由
 function savaUserMenuList(menuList) {
-  savaLocalStorage("menuList", menuList);
+  savaSessionStorage("menuList", menuList);
 }
 // 删除用户路由
 function deleteUserMenuList() {
-  deleteLocalStorage("menuList");
+  deleteSessionStorage("menuList");
 }
 // 获取用户路由
 function getUserMenuList() {
-  getLocalStorage("menuList");
+  return (
+    getSessionStorage("menuList") && JSON.parse(getSessionStorage("menuList"))
+  );
 }
 
 // 永久保存用户Token

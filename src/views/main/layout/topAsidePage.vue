@@ -28,7 +28,6 @@
     </el-header>
     <el-container>
       <el-aside :width="asideWidth">
-        <!-- <div>>></div> -->
         <aside-nav :asideNavArr="asideMainArr"></aside-nav>
       </el-aside>
       <el-main>
