@@ -125,7 +125,7 @@ export default {
       shape: {
         x1: 300,
         y1: 380,
-        x2: 10,
+        x2: 15,
         y2: 150,
         cpx1: 0,
         cpy1: 380
@@ -152,7 +152,7 @@ export default {
         shadowColor: "#fff"
       },
       shape: {
-        cx: 10,
+        cx: 15,
         cy: 150,
         r: 5
       }
@@ -279,7 +279,7 @@ export default {
       shape: {
         x1: 300,
         y1: 380,
-        x2: 590,
+        x2: 585,
         y2: 150,
         cpx1: 590,
         cpy1: 380
@@ -307,7 +307,7 @@ export default {
         shadowColor: "#fff"
       },
       shape: {
-        cx: 590,
+        cx: 585,
         cy: 150,
         r: 5
       }
@@ -372,6 +372,7 @@ export default {
     margin-left: -150px;
     z-index: 10;
   }
+  
   .cicle-one {
     width: 500px;
     height: 500px;
@@ -380,7 +381,7 @@ export default {
     left: 50%;
     top: 120px;
     margin-left: -250px;
-    animation: cir 6s infinite linear;
+    animation: cir 4s infinite linear;
     // transform: translateY(150px);
     .cicle-content {
       position: absolute;
@@ -388,6 +389,29 @@ export default {
       height: 100%;
       background-image: url("../../../../assets/imgs/c.png");
       background-size: 100% 100%;
+      animation: cir_p 3s linear 0s infinite;
+    }
+  }
+  .cicle-two {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 120px;
+    margin-left: -250px;
+    transform: rotateX(80deg) rotateY(10deg);
+    // transform: translateY(150px);
+    animation: cir_r 6s infinite linear;
+    transform-origin: center;
+    backface-visibility: hidden;
+    .cicle-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url("../../../../assets/imgs/c.png");
+      background-size: 100% 100%;
+      -webkit-animation: cir_p 4s linear 0s infinite;
       animation: cir_p 5s linear 0s infinite;
     }
   }
@@ -464,7 +488,7 @@ export default {
     position: absolute;
     transform-origin: 100% 0;
     animation: star-ani 5s infinite linear;
-    box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.3);
+    // box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.3);
     opacity: 0;
     z-index: 2;
   }
@@ -500,7 +524,7 @@ export default {
   .blue {
     bottom: 0;
     left: 100px;
-    background: cyan;
+    background: rgb(47, 65, 230);
     animation-delay: 7s;
   }
   .blue2 {
@@ -511,6 +535,7 @@ export default {
   }
   .blue:after {
     animation-delay: 7s;
+    border-color: transparent transparent transparent rgb(47, 65, 230);
   }
   .yellow {
     bottom: 0;
@@ -530,7 +555,7 @@ export default {
     transform: scale(0) rotate(0) translate3d(0, 0, 0);
   }
   50% {
-    opacity: 1;
+    opacity: 0.4;
     transform: scale(1) rotate(0) translate3d(0, -200px, 0);
   }
   100% {
