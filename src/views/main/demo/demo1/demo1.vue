@@ -372,7 +372,6 @@ export default {
     margin-left: -150px;
     z-index: 10;
   }
-  
   .cicle-one {
     width: 500px;
     height: 500px;
