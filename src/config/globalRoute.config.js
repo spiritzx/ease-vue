@@ -9,7 +9,22 @@ const globalRoutes = [
     meta: {
       title: "main"
     },
-    children: []
+    children: [
+      {
+        name: "Index", // 此后台管理页面不可删除
+        isNavTable: true,
+        position: "aside",
+        type: "main",
+        url: "/main/Index",
+        meta: {
+          icon: "index", // icon
+          title: "管理首页", // 页面标题
+          isAuth: true, // 是否需要授权
+          layout: "topAsidePage", // 头部导航布局
+          isNavFix: false // 头部导航是否固定
+        }
+      }
+    ]
   },
   {
     name: "404",

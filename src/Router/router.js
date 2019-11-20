@@ -15,7 +15,6 @@ let routerFlag = false;
 // 生成动态路由
 function createRouterMenuFn(menu, index = 1) {
   menu.forEach(val => {
-    console.log(val);
     val.path = val.url.replace("/main", "");
     let urlArr = val.url.split("/");
     let _name = urlArr[urlArr.length - 1];
@@ -33,15 +32,14 @@ function createRouterMenuFn(menu, index = 1) {
 routerFlag = storage.getUserMenuList();
 console.log(routerFlag);
 if (routerFlag) {
-  globalRoutes[0].children = globalRoutes[0].children
-    .concat(mainRoutes)
+  globalRoutes[0].children = mainRoutes
+    .concat(globalRoutes[0].children)
     .concat(routerFlag);
 } else {
-  globalRoutes[0].children = globalRoutes[0].children.concat(mainRoutes);
+  globalRoutes[0].children = mainRoutes.concat(globalRoutes[0].children);
 }
 
 let routers = globalRoutes;
-console.log(routers);
 createRouterMenuFn(globalRoutes);
 
 /**
@@ -84,6 +82,10 @@ RouterObj.beforeEach((to, from, next) => {
   store.dispatch("auth/setAuthTagFn", !!isLogin);
   store.dispatch("auth/setUserFn", userInfo);
   store.dispatch("page/setViewLayout", to.meta.layout);
+  if (to.name == "login" && isLogin) {
+    next({ path: "/" });
+    return;
+  }
   if (to.meta.isAuth) {
     let _to = {
       path: to.path,
@@ -121,7 +123,10 @@ RouterObj.afterEach(to => {
           routerFlag = true;
         });
       } else {
-        filterRouterMenuFn(routerArr);
+        console.log(routerFlag);
+        if (routerFlag !== true) {
+          filterRouterMenuFn(routerArr);
+        }
       }
     } else {
       filterRouterMenuFn(routerArr);
