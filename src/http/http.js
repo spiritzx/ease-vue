@@ -1,10 +1,10 @@
 import axios from "axios";
-import store from "../Store/store";
+import store from "../store/store";
 import storage from "../utils/storage";
 // 引入弹窗组件
 import { Message, Loading } from "element-ui";
 // 引入路由跳转
-import router from "../Router/router";
+import router from "../router/router";
 // load配置
 let options = {};
 // 添加请求拦截器

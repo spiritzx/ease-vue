@@ -75,8 +75,8 @@
         <p>role</p>
       </div>
       <div>
-        <i class="icon-home"></i>
-        <p>home</p>
+        <i class="icon-index"></i>
+        <p>index</p>
       </div>
       <div>
         <i class="icon-edit"></i>
@@ -106,7 +106,7 @@
   </div>
 </template>
 <style lang="less" scoped>
-@import url("../../../Style/font.less");
+@import url("../../../style/font.less");
 .icon-wrap {
   display: flex;
   flex-direction: row;

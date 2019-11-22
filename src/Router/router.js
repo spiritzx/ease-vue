@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import store from "../Store/store";
+import store from "../store/store";
 import storage from "../utils/storage";
 import mainRoutes from "@/config/mainRoute.config.js";
 import globalRoutes from "@/config/globalRoute.config.js";

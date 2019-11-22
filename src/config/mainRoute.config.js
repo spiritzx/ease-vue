@@ -1,7 +1,7 @@
 /**
  * 不需要授权的页面配置
  * 如果清空就是单纯的后台管理页面
- *  name： 文件目录名
+ * name： 文件目录名
  * isNavTable: 是否在菜单显示路由
  * position：路由显示在页面的位置
  * type: 类型
@@ -19,7 +19,7 @@ const mainRoutes = [
     icon: "",
     url: "/main/Home",
     meta: {
-      title: "首页", // 页面标题
+      title: "home", // 页面标题
       isAuth: false, // 是否需要授权
       layout: "topPage", // 头部导航布局
       isNavFix: true // 头部导航是否固定
@@ -32,7 +32,7 @@ const mainRoutes = [
     type: "main",
     url: "/main/About",
     meta: {
-      title: "About",
+      title: "about",
       isAuth: false,
       layout: "topPage"
     }
@@ -54,7 +54,7 @@ const mainRoutes = [
         isNavTable: true,
         url: "/main/demo/demo1",
         meta: {
-          title: "demo-1",
+          title: "demo_1",
           isAuth: false,
           layout: "topPage"
         }
@@ -64,7 +64,7 @@ const mainRoutes = [
         isNavTable: true,
         url: "/main/demo/demo2",
         meta: {
-          title: "demo-2",
+          title: "demo_2",
           isAuth: false,
           layout: "topPage"
         }

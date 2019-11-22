@@ -15,7 +15,8 @@
             @mouseout="closeChildMenuFn"
           >
             <p class="menu-title">
-              {{ item.meta.title }}
+              <!-- {{ item.meta.title }}  -->
+              {{ $t(item.meta.title) }}
               <i class="el-icon-caret-bottom"></i>
             </p>
             <div
@@ -37,7 +38,7 @@
               :data-index="i"
               v-if="item.isNavTable"
             >
-              {{ item.meta.title }}
+              {{ $t(item.meta.title) }}
             </router-link>
           </div>
         </li>

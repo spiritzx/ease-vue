@@ -73,7 +73,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-@import url("../../Style/font.less");
+@import url("../../style/font.less");
 .child-menu-list {
   min-height: 50px;
   line-height: 50px;

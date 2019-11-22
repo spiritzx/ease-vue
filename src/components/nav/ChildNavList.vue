@@ -3,7 +3,7 @@
     <li v-for="(item, i) in navArr" :key="i" class="list">
       <div class="child-menu-list" v-if="item.isNavTable">
         <div v-if="item.children && item.children.length">
-          <p class="child-menu-title">{{ item.meta.title }}</p>
+          <p class="child-menu-title">{{ $t(item.meta.title) }}</p>
           <div class="child-menu-list-wrap">
             <child-nav-list
               :navArr="item.children"
@@ -18,7 +18,7 @@
             :data-index="navIndex"
             v-if="item.isNavTable"
           >
-            {{ item.meta.title }}
+            {{ $t(item.meta.title) }}
           </router-link>
         </div>
       </div>
