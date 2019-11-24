@@ -9,5 +9,5 @@ function removeAuth() {
 }
 
 export default {
-  removeAuth: removeAuth
+  removeAuth
 };

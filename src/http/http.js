@@ -5,15 +5,16 @@ import storage from "../utils/storage";
 import { Message, Loading } from "element-ui";
 // 引入路由跳转
 import router from "../router/router";
+// 引入用户授权操作
+import Auth from "@/utils/auth";
+
 // load配置
 let options = {};
 // 添加请求拦截器
 let myInterceptor = axios.interceptors.request.use(
   config => {
-    const token = storage.getSessionUserToken();
-    console.log(token);
+    const token = storage.getUserToken();
     token && (config.headers.Authorization = token);
-    console.log(config);
     return config;
   },
   error => {
@@ -65,8 +66,8 @@ function checkStatus(response) {
             message: "登录过期，请重新登录",
             type: "warning"
           });
-          // 清除token
-          localStorage.removeItem("token");
+          // 清除用户信息
+          Auth.removeAuth();
           store.commit("loginSuccess", null);
           // 跳转登录页面，并将要浏览的页面fullPath传过去，登录成功后跳转需要访问的页面
           setTimeout(() => {

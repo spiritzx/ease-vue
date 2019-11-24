@@ -6,7 +6,7 @@
           <div class="child-menu-title" @click="showChildFn(i)">
             <p>
               <i class="icon-2"></i>
-              <span>{{ item.meta.title }}</span>
+              <span>{{ $t(item.meta.title) }}</span>
             </p>
             <i
               class="el-icon-arrow-right"
@@ -33,7 +33,7 @@
             v-if="item.isNavTable"
           >
             <i :class="'icon-' + item.meta.icon"></i>
-            {{ item.meta.title }}
+            {{ $t(item.meta.title) }}
           </router-link>
         </div>
       </div>

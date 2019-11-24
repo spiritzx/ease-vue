@@ -18,7 +18,7 @@ const globalRoutes = [
         url: "/main/Index",
         meta: {
           icon: "index", // icon
-          title: "管理首页", // 页面标题
+          title: "index", // 页面标题
           isAuth: true, // 是否需要授权
           layout: "topAsidePage", // 头部导航布局
           isNavFix: false // 头部导航是否固定

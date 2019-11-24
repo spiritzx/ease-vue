@@ -16,24 +16,9 @@
               <p>基于vue、element-ui的PC端解决方案</p>
             </div>
           </div>
-          <div slot="nav-sub" v-if="activeRouter">
-            <el-dropdown
-              @command="handleCommand"
-              v-if="$store.getters['auth/getAuthTagFn']"
-            >
-              <span class="el-dropdown-link">
-                admin<i class="el-icon-arrow-down el-icon--right"></i>
-              </span>
-              <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="navToAdminHomeFn">
-                  管理页面
-                </el-dropdown-item>
-                <el-dropdown-item>退出</el-dropdown-item>
-              </el-dropdown-menu>
-            </el-dropdown>
-            <div @click="navToLoginFn" class="login-btn" v-else>
-              未登录,请登录
-            </div>
+          <div slot="nav-sub">
+            <!-- 页面功能模块 -->
+            <top-nav-right></top-nav-right>
           </div>
         </nav-menu>
       </div>
@@ -55,47 +40,32 @@
 <script>
 import { mapGetters } from "vuex";
 // 引入导航
-import NavMenu from "@/components/nav/NavMenu";
-// 引入导航类型
-import { activeRouter } from "@/config/globalConfig";
+import NavMenu from "@/components/TopNav/NavMenu";
+// 引入上方右侧功能模块
+import TopNavRight from "@/components/TopNavRight/TopNavRight";
 
 export default {
   name: "topPage",
   components: {
-    NavMenu
+    NavMenu,
+    TopNavRight
   },
   data() {
     return {
       headHeight: "60px",
-      navPosition: "nav-left",
-      activeRouter: activeRouter
+      navPosition: "nav-left"
     };
   },
   created() {},
   computed: {
     ...mapGetters({
-      topMainArr: "auth/getTopMain",
-      asideMainArr: "auth/getAsideMain"
+      topMainArr: "auth/getTopMain"
     })
   },
   methods: {
-    // 下拉菜单触发事件
-    handleCommand(val) {
-      this[val]();
-    },
-    // 跳转用户管理首页
-    navToAdminHomeFn() {
-      this.$router.push(this.asideMainArr[0].path);
-    },
     // 跳转首页
     navToHomeFn() {
       this.$router.push("/");
-    },
-    // 跳转导航页
-    navToLoginFn() {
-      this.$router.push({
-        path: "/login"
-      });
     }
   }
 };
@@ -137,6 +107,7 @@ export default {
   width: 100%;
   box-sizing: border-box;
   z-index: 99;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .el-main {

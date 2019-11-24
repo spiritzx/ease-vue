@@ -77,8 +77,8 @@ const RouterObj = new Router({
 
 // 权限验证
 RouterObj.beforeEach((to, from, next) => {
-  let isLogin = storage.getSessionUserToken();
-  let userInfo = storage.getSessionUserInfo();
+  let isLogin = storage.getUserToken();
+  let userInfo = storage.getUserInfo();
   store.dispatch("auth/setAuthTagFn", !!isLogin);
   store.dispatch("auth/setUserFn", userInfo);
   store.dispatch("page/setViewLayout", to.meta.layout);
@@ -105,7 +105,7 @@ RouterObj.beforeEach((to, from, next) => {
 });
 // 添加动态路由
 RouterObj.afterEach(to => {
-  let isLogin = storage.getSessionUserToken();
+  let isLogin = storage.getUserToken();
   let _routers = routers[0];
   let routerArr = routers[0].children;
   document.title = to.meta.title;

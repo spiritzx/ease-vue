@@ -17,7 +17,7 @@
           "isNavTable": true,
           "url": "/main/Child/childA",
           "meta": {
-            "title": "一级菜单",
+            "title": "一级菜单——1",
             "isAuth": true,
             "layout": "topAsidePage"
           },

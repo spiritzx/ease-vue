@@ -57,8 +57,8 @@ export default {
                 let _res = res.data;
                 this.$store.dispatch("auth/setAuthTagFn", true);
                 this.$store.dispatch("auth/setUserFn", _res);
-                storage.savaSessionUserToken(_res.userId);
-                storage.savaSessionUserInfo(_res);
+                storage.savaUserToken(_res.userId);
+                storage.savaUserInfo(_res);
                 this.$router.push("/");
                 this.$message({
                   message: "登录成功",

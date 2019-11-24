@@ -11,17 +11,8 @@
             </div>
           </div>
           <div slot="nav-sub">
-            <el-dropdown @command="handleCommand">
-              <span class="el-dropdown-link">
-                admin<i class="el-icon-arrow-down el-icon--right"></i>
-              </span>
-              <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="navToAdminHomeFn">
-                  管理页面
-                </el-dropdown-item>
-                <el-dropdown-item>退出</el-dropdown-item>
-              </el-dropdown-menu>
-            </el-dropdown>
+            <!-- 页面功能模块 -->
+            <top-nav-right></top-nav-right>
           </div>
         </nav-menu>
       </div>
@@ -43,18 +34,21 @@
 <script>
 import { mapGetters } from "vuex";
 // 引入导航
-import NavMenu from "@/components/nav/NavMenu";
+import NavMenu from "@/components/TopNav/NavMenu";
 // 引入侧边导航
 import AsideNav from "@/components/AsideNav/AsideNav";
 // 引入滑动条
 import ScrollBar from "@/components/scrollBar/scrollBar";
+// 引入上方右侧功能模块
+import TopNavRight from "@/components/TopNavRight/TopNavRight";
 
 export default {
   name: "topAsidePage",
   components: {
     NavMenu,
     ScrollBar,
-    AsideNav
+    AsideNav,
+    TopNavRight
   },
   data() {
     return {

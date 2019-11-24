@@ -61,7 +61,7 @@ function savaUserToken(token) {
 }
 // 获取永久用户Token
 function getUserToken() {
-  getLocalStorage("token");
+  return getLocalStorage("token");
 }
 // 删除用户Token
 function deleteUserToken() {
