@@ -1,10 +1,19 @@
-@import './style.less';
+@import './common.less';
+// 样式一继承样式属性
+@import "./theme/theme1_base.less";
+// 样式二继承样式属性
+@import "./theme/theme2_base.less";
 .theme1{
-  .theme();//默认的样式
+  .theme(
+    @t1_bgColor,
+    @t1_fcolor,
+    @t1_primaryColor
+  );//默认的样式
 }
 .theme2{
-  .theme(rgb(141, 139, 219),#fff,#eee);
-}
-.theme3{
-  .theme(rgb(172, 214, 200),#615f5f,#ffe);
+  .theme(
+    @t2_bgColor,
+    @t2_fcolor,
+    @t2_primaryColor
+  );//默认的样式
 }

@@ -1,0 +1,27 @@
+.theme(
+  @bgcolor,
+  @fcolor,
+  @primaryColor
+) {
+  color: @fcolor;
+  background: @bgcolor;
+  .el-aside {
+    background: @bgcolor;
+    color: @fcolor;
+    border-right: 1px solid rgba(200, 200, 200, 0.3);
+    .child-menu-title {
+      color: @fcolor;
+    }
+  }
+  .el-header {
+    color: @fcolor;
+    background: @bgcolor;
+    .child-menu-wrap {
+      background: @bgcolor;
+    }
+  }
+  .el-button--primary {
+    background: @primaryColor;
+    border-color: @primaryColor;
+  }
+}

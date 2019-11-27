@@ -6,5 +6,6 @@ export default {
   demo_2: "Demo_2", //样式2
   icon: "Icon", // 图标
   my: "My", // 我的
-  logout: "Logout" // 退出
+  logout: "Logout", // 退出
+  index: "Index"
 };

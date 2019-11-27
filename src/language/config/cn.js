@@ -6,5 +6,6 @@ export default {
   demo_2: "样式_2",
   icon: "图标",
   my: "我的",
-  logout: "退出"
+  logout: "退出",
+  index: "管路首页"
 };
