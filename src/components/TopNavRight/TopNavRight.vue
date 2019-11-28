@@ -3,6 +3,18 @@
     <div class="top-right__item">
       <el-dropdown @command="selectLangFn">
         <span class="el-dropdown-link">
+          {{ style }}
+          <i class="el-icon-arrow-down el-icon--right"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item command="cn">白天</el-dropdown-item>
+          <el-dropdown-item command="en">黑夜</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </div>
+    <div class="top-right__item">
+      <el-dropdown @command="selectLangFn">
+        <span class="el-dropdown-link">
           {{ lang }}
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
@@ -30,7 +42,7 @@
         </el-dropdown-menu>
       </el-dropdown>
       <div @click="navToLoginFn" class="login-btn" v-else>
-        未登录,请登录
+        {{ $t("login") }}
       </div>
     </div>
   </div>
@@ -48,7 +60,8 @@ export default {
   data() {
     return {
       activeRouter: activeRouter,
-      lang: "cn"
+      lang: "cn",
+      style: "白天"
     };
   },
   computed: {

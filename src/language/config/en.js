@@ -7,5 +7,6 @@ export default {
   icon: "Icon", // 图标
   my: "My", // 我的
   logout: "Logout", // 退出
-  index: "Index"
+  index: "Index", // 管理首页
+  login: "Login" // 登录
 };
