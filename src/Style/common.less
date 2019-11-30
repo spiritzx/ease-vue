@@ -5,6 +5,7 @@
 ) {
   color: @fcolor;
   background: @bgcolor;
+
   .el-aside {
     background: @bgcolor;
     color: @fcolor;
@@ -13,15 +14,28 @@
       color: @fcolor;
     }
   }
+
   .el-header {
     color: @fcolor;
     background: @bgcolor;
+    border: 0;
+    box-shadow: 0;
     .child-menu-wrap {
       background: @bgcolor;
     }
   }
+
   .el-button--primary {
     background: @primaryColor;
-    border-color: @primaryColor;
+    border-color: @fcolor;
+  }
+  // elemetn-ui 下拉
+  .el-dropdown {
+    .el-dropdown-link {
+      background: @primaryColor;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
   }
 }
