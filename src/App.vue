@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="theme1">
+  <div id="app" :class="$store.getters['auth/getUser'].style">
     <router-view></router-view>
   </div>
 </template>

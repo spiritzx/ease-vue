@@ -123,7 +123,6 @@ RouterObj.afterEach(to => {
           routerFlag = true;
         });
       } else {
-        console.log(routerFlag);
         if (routerFlag !== true) {
           filterRouterMenuFn(routerArr);
         }

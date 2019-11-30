@@ -1,21 +1,23 @@
 <template>
   <div class="top-nav-right">
     <div class="top-right__item">
-      <el-dropdown @command="selectLangFn">
+      <el-dropdown @command="selectStyleFn">
         <span class="el-dropdown-link">
-          {{ style }}
+          {{ $t($store.getters["auth/getUser"].style) }}
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item command="cn">白天</el-dropdown-item>
-          <el-dropdown-item command="en">黑夜</el-dropdown-item>
+          <el-dropdown-item command="default">
+            {{ $t("default") }}
+          </el-dropdown-item>
+          <el-dropdown-item command="dark">{{ $t("dark") }}</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
     <div class="top-right__item">
       <el-dropdown @command="selectLangFn">
         <span class="el-dropdown-link">
-          {{ lang }}
+          {{ $t($store.getters["auth/getUser"].lang) }}
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
@@ -59,9 +61,7 @@ export default {
   name: "TopNavRight",
   data() {
     return {
-      activeRouter: activeRouter,
-      lang: "cn",
-      style: "白天"
+      activeRouter: activeRouter
     };
   },
   computed: {
@@ -91,8 +91,20 @@ export default {
     },
     // 选择语言
     selectLangFn(name) {
-      this.lang = name;
+      // this.lang = name;
       this.$i18n.locale = name;
+      let userInfo = {
+        lang: name
+      };
+      Auth.setUserInfoFn(userInfo);
+    },
+    // 选择页面皮肤
+    selectStyleFn(name) {
+      // this.style = name;
+      let userInfo = {
+        style: name
+      };
+      Auth.setUserInfoFn(userInfo);
     }
   }
 };

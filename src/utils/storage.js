@@ -82,7 +82,7 @@ function savaUserInfo(userInfo) {
 }
 // 获取用户信息
 function getUserInfo() {
-  return getLocalStorage("userInfo");
+  return getLocalStorage("userInfo") && JSON.parse(getLocalStorage("userInfo"));
 }
 // 删除用户信息
 function deleteUserInfo() {

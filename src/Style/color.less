@@ -1,19 +1,19 @@
 @import './common.less';
-// 样式一继承样式属性
-@import "./theme/theme1_base.less";
-// 样式二继承样式属性
-@import "./theme/theme2_base.less";
-.theme1{
+// 默认属性
+@import "./theme/default_base.less";
+// 黑夜样式属性
+@import "./theme/dark_base.less";
+.default{
   .theme(
     @t1_bgColor,
     @t1_fcolor,
     @t1_primaryColor
   );//默认的样式
 }
-.theme2{
+.dark{
   .theme(
     @t2_bgColor,
     @t2_fcolor,
     @t2_primaryColor
-  );//默认的样式
+  );//黑夜模式
 }

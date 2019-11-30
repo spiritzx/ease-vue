@@ -8,5 +8,7 @@ export default {
   my: "My", // 我的
   logout: "Logout", // 退出
   index: "Index", // 管理首页
-  login: "Login" // 登录
+  login: "Login", // 登录
+  default: "Default",
+  dark: "Dark"
 };
