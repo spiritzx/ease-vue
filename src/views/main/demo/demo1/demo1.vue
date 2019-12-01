@@ -359,7 +359,6 @@ export default {
 .bg {
   background: url("../../../../assets/imgs/bg.png") no-repeat center;
   background-size: cover;
-  min-height: calc(100vh - 160px);
   height: 100%;
   position: relative;
   // transform-style: preserve-3d;

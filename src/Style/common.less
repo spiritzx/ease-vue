@@ -5,23 +5,41 @@
 ) {
   color: @fcolor;
   background: @bgcolor;
+  .top-nav__wrap {
+    color: @fcolor;
+    background: @bgcolor;
+    border-bottom: 1px solid @primaryColor;
+    box-shadow: 0;
+    box-sizing: border-box;
+    height: 60px;
+    #nav {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .child-menu-wrap {
+      background: @bgcolor;
+    }
+  }
 
   .el-aside {
     background: @bgcolor;
     color: @fcolor;
+    max-height: calc(100vh - 60px);
     border-right: 1px solid rgba(200, 200, 200, 0.3);
     .child-menu-title {
       color: @fcolor;
     }
   }
 
-  .el-header {
-    color: @fcolor;
+  .admin-main {
+    padding: 0;
     background: @bgcolor;
-    border: 0;
-    box-shadow: 0;
-    .child-menu-wrap {
-      background: @bgcolor;
+    max-height: calc(100vh - 60px);
+    .view {
+      background: @primaryColor;
+      min-height: calc(100vh - 120px);
+      margin: 15px 20px;
+      border-radius: 4px;
     }
   }
 
