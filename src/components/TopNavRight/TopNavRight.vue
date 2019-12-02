@@ -124,4 +124,12 @@ export default {
     margin-left: 20px;
   }
 }
+.dark {
+  .top-nav-right {
+    .top-right__item {
+      background: @t2_primaryColor;
+      color: @t2_fcolor;
+    }
+  }
+}
 </style>
