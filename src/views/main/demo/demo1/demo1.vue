@@ -367,7 +367,7 @@ export default {
     width: 300px;
     height: 300px;
     left: 50%;
-    top: 60px;
+    top: 300px;
     margin-left: -150px;
     z-index: 10;
   }
@@ -377,7 +377,7 @@ export default {
     border-radius: 50%;
     position: absolute;
     left: 50%;
-    top: 120px;
+    top: 360px;
     margin-left: -250px;
     animation: cir 4s infinite linear;
     // transform: translateY(150px);
@@ -396,7 +396,7 @@ export default {
     border-radius: 50%;
     position: absolute;
     left: 50%;
-    top: 120px;
+    top: 360px;
     margin-left: -250px;
     transform: rotateX(80deg) rotateY(10deg);
     // transform: translateY(150px);
@@ -419,7 +419,7 @@ export default {
     border-radius: 50%;
     position: absolute;
     left: 50%;
-    top: 120px;
+    top: 360px;
     margin-left: -250px;
     transform: rotateX(80deg) rotateY(10deg);
     // transform: translateY(150px);
@@ -442,7 +442,7 @@ export default {
     border-radius: 50%;
     position: absolute;
     left: 50%;
-    top: 220px;
+    top: 460px;
     margin-left: -150px;
     transform: rotateX(80deg) rotateY(10deg);
     // transform: translateY(150px);
@@ -463,7 +463,7 @@ export default {
 .canvas-box {
   position: absolute;
   left: 50%;
-  top: 0;
+  top: 240px;
   margin-left: -300px;
   z-index: 20;
 }
@@ -472,7 +472,7 @@ export default {
   height: 400px;
   position: absolute;
   left: 50%;
-  top: 0;
+  top: 240px;
   z-index: 1;
   margin-left: -300px;
   .star {
