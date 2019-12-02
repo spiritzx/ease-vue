@@ -63,21 +63,23 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+@import url("../../style/theme/dark_base.less");
+@import url("../../style/theme/default_base.less");
 .scrollbar {
   position: relative;
-  background: #fff;
+  background: @t1_bgColor;
 }
 .scrollbarMenu {
   position: absolute;
   right: 0;
   top: 0;
-  background: #fff;
+  background: @t1_bgColor;
   text-align: center;
   width: 4%;
   height: 30px;
   line-height: 30px;
   font-size: 24px;
-  box-shadow: 0px 0px 6px #999;
+  box-shadow: 0px 0px 6px @t1_fcolor;
 }
 .scroll-bar-wrap {
   width: 100%;
@@ -111,6 +113,32 @@ export default {
         line-height: 30px;
         text-align: center;
         overflow: hidden;
+      }
+    }
+  }
+}
+.dark {
+  .scrollbar {
+    position: relative;
+    background: @t2_bgColor;
+  }
+  .scrollbarMenu {
+    background: @t2_bgColor;
+  }
+  .scroll-bar-wrap {
+    box-shadow: 0;
+    .scroll-bar-row {
+      background: @t2_bgColor;
+      .scroll-bar-item {
+        .el-tag--info {
+          background: #000;
+          border: 0;
+        }
+        .active {
+          a {
+            color: #64bf0a;
+          }
+        }
       }
     }
   }

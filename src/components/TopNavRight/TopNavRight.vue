@@ -99,7 +99,6 @@ export default {
     },
     // 选择语言
     selectLangFn(name) {
-      // this.lang = name;
       this.$i18n.locale = name;
       let userInfo = {
         lang: name
@@ -108,7 +107,6 @@ export default {
     },
     // 选择页面皮肤
     selectStyleFn(name) {
-      // this.style = name;
       let userInfo = {
         style: name
       };
@@ -118,17 +116,12 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-@import url("../../style/theme/default_base.less");
 @import url("../../style/theme/dark_base.less");
-
+@import url("../../style/theme/default_base.less");
 .top-nav-right {
   display: flex;
   .top-right__item {
     margin-left: 20px;
-    cursor: pointer;
-    background: @t1_primaryColor;
-    padding: 5px 10px;
-    border-radius: 4px;
   }
 }
 .dark {

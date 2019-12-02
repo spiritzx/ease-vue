@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <el-header :height="headHeight">
+    <header class="top-nav__wrap">
       <div id="nav">
         <nav-menu>
           <div slot="nav-icon" class="web-logo" @click="navToHomeFn">
@@ -16,12 +16,12 @@
           </div>
         </nav-menu>
       </div>
-    </el-header>
+    </header>
     <el-container>
       <el-aside :width="asideWidth">
         <aside-nav :asideNavArr="asideMainArr"></aside-nav>
       </el-aside>
-      <el-main>
+      <el-main class="admin-main">
         <!-- tagView -->
         <scroll-bar></scroll-bar>
         <transition name="fade" mode="out-in">
@@ -52,7 +52,6 @@ export default {
   },
   data() {
     return {
-      headHeight: "60px",
       asideWidth: "200px"
     };
   },
@@ -99,35 +98,7 @@ export default {
   margin-bottom: 0px;
   padding: 0 30px;
 }
-.el-header {
-  padding: 0;
-  box-shadow: 0 0 3px #eee;
-  position: relative;
-  z-index: 10;
-  border: 1px solid #eee;
-  overflow: hidden;
-}
 .el-container {
   min-height: calc(100vh - 60px);
-}
-.el-aside {
-  max-height: calc(100vh - 60px);
-  border-radius: 0 0 4px 0;
-  box-shadow: 0 0 5px #999;
-  .mask {
-    display: none;
-  }
-}
-.el-main {
-  padding: 0;
-  background: #f8f8f8;
-  max-height: calc(100vh - 60px);
-  .view {
-    background: #fff;
-    min-height: calc(100vh - 120px);
-    margin: 15px 20px;
-    border-radius: 4px;
-    box-shadow: 0 0 5px #888;
-  }
 }
 </style>

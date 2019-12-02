@@ -1,7 +1,7 @@
 <template>
   <div class="main">
-    <el-header
-      :height="headHeight"
+    <header
+      class="top-nav__wrap"
       :class="{
         fixNav: $route.meta.isNavFix,
         navBg: $store.getters['page/getNavBg']
@@ -22,19 +22,17 @@
           </div>
         </nav-menu>
       </div>
-    </el-header>
-    <el-container>
-      <el-main>
-        <transition name="fade" mode="out-in">
-          <router-view class="view"></router-view>
-        </transition>
-      </el-main>
-    </el-container>
-    <footer>
+    </header>
+    <el-main>
+      <transition name="fade" mode="out-in">
+        <router-view class="view"></router-view>
+      </transition>
+    </el-main>
+    <!-- <footer>
       <div class="page-footer">
         Ease-vue@tomz_z
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 <script>
@@ -52,7 +50,6 @@ export default {
   },
   data() {
     return {
-      headHeight: "60px",
       navPosition: "nav-left"
     };
   },
@@ -75,12 +72,11 @@ export default {
 .main {
   height: 100%;
   position: relative;
-  .el-header {
+  .top-nav__wrap {
     padding: 0;
     width: 100%;
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 0 3px #eee;
     box-sizing: border-box;
+    position: absolute;
   }
   .fixNav {
     position: fixed;
@@ -109,15 +105,14 @@ export default {
   z-index: 99;
   background: rgba(255, 255, 255, 0.3);
 }
-
 .el-main {
   padding: 0;
   background: #fff;
-  min-height: calc(100vh - 160px);
-  box-shadow: 0 0 3px #eee;
+  height: 100%;
   .view {
     box-sizing: border-box;
     padding: 0;
+    height: 100%;
   }
 }
 .page-footer {
