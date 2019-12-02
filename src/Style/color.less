@@ -1,19 +1,44 @@
-@import './common.less';
+// @import './common.less';
 // 默认属性
-@import "./theme/default_base.less";
-// 黑夜样式属性
-@import "./theme/dark_base.less";
+// @import "./theme/default_base.less";
+// // 黑夜样式属性
+// @import "./theme/dark_base.less";
+.mixin(@bgcolor, @fcolor, @primaryColor) {
+  color: #000;
+  // color: @fcolor;
+  // background: @bgcolor;
+  // .el-aside {
+  //   background: @bgcolor;
+  //   color: @fcolor;
+  //   border-right: 1px solid rgba(200, 200, 200, 0.3);
+  //   .child-menu-title {
+  //     color: @fcolor;
+  //   }
+  // }
+  // .el-header {
+  //   color: @fcolor;
+  //   background: @bgcolor;
+  //   .child-menu-wrap {
+  //     background: @bgcolor;
+  //   }
+  // }
+  // .el-button--primary {
+  //   background: @primaryColor;
+  //   border-color: @primaryColor;
+  // }
+}
+
 .default{
-  .theme(
-    @t1_bgColor,
-    @t1_fcolor,
-    @t1_primaryColor
+  .mixin(
+    // @t1_bgColor,
+    // @t1_fcolor,
+    // @t1_primaryColor
   );//默认的样式
 }
-.dark{
-  .theme(
-    @t2_bgColor,
-    @t2_fcolor,
-    @t2_primaryColor
-  );//黑夜模式
-}
+// .dark{
+//   .theme(
+//     @t2_bgColor,
+//     @t2_fcolor,
+//     @t2_primaryColor
+//   );//黑夜模式
+// }

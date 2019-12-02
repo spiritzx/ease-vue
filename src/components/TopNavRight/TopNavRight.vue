@@ -3,7 +3,11 @@
     <div class="top-right__item">
       <el-dropdown @command="selectStyleFn">
         <span class="el-dropdown-link">
-          {{ $t($store.getters["auth/getUser"].style) }}
+          {{
+            $store.getters["auth/getUser"]
+              ? $t($store.getters["auth/getUser"].style || "default")
+              : $t("default")
+          }}
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
@@ -17,7 +21,11 @@
     <div class="top-right__item">
       <el-dropdown @command="selectLangFn">
         <span class="el-dropdown-link">
-          {{ $t($store.getters["auth/getUser"].lang) }}
+          {{
+            $store.getters["auth/getUser"]
+              ? $t($store.getters["auth/getUser"].lang || "cn")
+              : $t("cn")
+          }}
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
@@ -110,14 +118,25 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+@import url("../../style/theme/default_base.less");
+@import url("../../style/theme/dark_base.less");
+
 .top-nav-right {
   display: flex;
   .top-right__item {
     margin-left: 20px;
     cursor: pointer;
-    background: #f5f5f5;
+    background: @t1_primaryColor;
     padding: 5px 10px;
     border-radius: 4px;
+  }
+}
+.dark {
+  .top-nav-right {
+    .top-right__item {
+      background: @t2_primaryColor;
+      color: @t2_fcolor;
+    }
   }
 }
 </style>
