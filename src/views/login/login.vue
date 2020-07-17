@@ -18,6 +18,7 @@
         ></el-input>
       </el-form-item>
       <el-form-item>
+
         <el-button type="primary" @click="submitForm('ruleForm2')">
           登录
         </el-button>
@@ -45,36 +46,40 @@ export default {
   },
   methods: {
     submitForm(formName) {
-      this.$refs[formName].validate(valid => {
-        if (valid) {
-          this.$Http
-            .postRequest("/mock/login", {
-              user: this.ruleForm2.account,
-              pass: this.ruleForm2.pass
-            })
-            .then(res => {
-              if (res.code == 1000) {
-                let _res = res.data;
-                this.$store.dispatch("auth/setAuthTagFn", true);
-                this.$store.dispatch("auth/setUserFn", _res);
-                storage.savaUserToken(_res.userId);
-                storage.savaUserInfo(_res);
-                this.$router.push("/");
-                this.$message({
-                  message: "登录成功",
-                  type: "success"
-                });
-              } else {
-                this.$message({
-                  message: res.msg,
-                  type: "error"
-                });
-              }
-            });
-        } else {
-          return false;
-        }
-      });
+      console.log(1)
+      this.$router.push({
+        path: "index"
+      })
+      // this.$refs[formName].validate(valid => {
+      //   if (valid) {
+      //     this.$Http
+      //       .postRequest("/mock/login", {
+      //         user: this.ruleForm2.account,
+      //         pass: this.ruleForm2.pass
+      //       })
+      //       .then(res => {
+      //         if (res.code == 1000) {
+      //           let _res = res.data;
+      //           this.$store.dispatch("auth/setAuthTagFn", true);
+      //           this.$store.dispatch("auth/setUserFn", _res);
+      //           storage.savaUserToken(_res.userId);
+      //           storage.savaUserInfo(_res);
+      //           this.$router.push("/");
+      //           this.$message({
+      //             message: "登录成功",
+      //             type: "success"
+      //           });
+      //         } else {
+      //           this.$message({
+      //             message: res.msg,
+      //             type: "error"
+      //           });
+      //         }
+      //       });
+      //   } else {
+      //     return false;
+      //   }
+      // });
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();

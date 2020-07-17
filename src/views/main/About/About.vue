@@ -14,7 +14,9 @@
       :style="{ top: -(pageIndex * window_h) + 'px' }"
       ref="pageContent"
     >
-      <div class="box1"></div>
+      <div class="box1">
+        <div @click="navFn">跳转管理页</div>
+      </div>
       <div class="box2"></div>
       <div class="box3"></div>
     </div>
@@ -52,6 +54,11 @@ export default {
         }
         this.deltay = false;
       }, 300);
+    },
+    navFn() {
+      this.$router.push({
+        path: "index"
+      })
     }
   }
 };
@@ -102,6 +109,9 @@ export default {
   height: 100vh;
   background: url("../../../assets/imgs/01.jpg");
   background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   // background-attachment: fixed;
 }
 .box2 {

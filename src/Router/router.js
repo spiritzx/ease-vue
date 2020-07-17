@@ -75,6 +75,13 @@ const RouterObj = new Router({
   routes: routers
 });
 
+const originalPush = Router.prototype.push;
+Router.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject) {
+    return originalPush.call(this, location, onResolve, onReject);
+  }
+  return originalPush.call(this, location).catch(err => err);
+};
 // 权限验证
 RouterObj.beforeEach((to, from, next) => {
   let isLogin = storage.getUserToken();
@@ -97,7 +104,12 @@ RouterObj.beforeEach((to, from, next) => {
     if (isLogin) {
       next();
     } else {
-      next({ path: "/login" });
+      next({
+        path: "/login",
+        query: {
+          redirect: to.fullPath
+        }
+      });
     }
   } else {
     next();
